@@ -25,6 +25,12 @@ public class UserInterface {
             return;
         }
         try {
+            DoubleVector dvconsole = new DoubleVector();
+            DoubleVector dvfile = new DoubleVector();
+            for(String i: args){
+                dvconsole.add(Double.parseDouble(i));
+                dvfile.add(Double.parseDouble(i));
+            }
             String path = "";
             while (true){
                 System.out.println("Введите название файла (пример: test.txt):");
@@ -34,12 +40,6 @@ public class UserInterface {
                 }else {
                     System.out.println("Вы ввели неверное имя файла");
                 }
-            }
-            DoubleVector dvconsole = new DoubleVector();
-            DoubleVector dvfile = new DoubleVector();
-            for(String i: args){
-                dvconsole.add(Double.parseDouble(i));
-                dvfile.add(Double.parseDouble(i));
             }
             FileForVector fv = new FileForVector(path, dvfile);
             fv.writetofile();
